@@ -8,6 +8,9 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import AppLayout from "./components/AppLayout"
 import NotFound from "./components/NotFound"
+import User from "./components/User"
+import Profile from "./components/Profile"
+import Account from "./components/Account"
 function App() {
 
   const router = createBrowserRouter([
@@ -25,9 +28,23 @@ function App() {
           element: <About />
         },
         {
-          path: "/contact",
+          path: "/contact/:id",
           element: <Contact />
         },
+       {
+        path:"/user",
+        element:<User />,
+        children:[
+          {
+            path: "profile",
+            element: <Profile />
+          },
+          {
+            path: "account",
+            element: <Account />
+          },
+        ]
+       }
       ]
     },
     
